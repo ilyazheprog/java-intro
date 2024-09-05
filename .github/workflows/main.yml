@@ -19,12 +19,9 @@ jobs:
          java-version: '21'
          distribution: 'temurin'
   
-      - name: Grand executive permission for gradlew
-        run: chmod +x ./gradlew
+      - name: Build
+        run: make build
   
-      - name: Gradlew clean
-        run: ./gradlew clean
-  
-      - name: Gradlew test run
+      - name: Test run
         id: test
-        run: ./gradlew test
+        run: make test
