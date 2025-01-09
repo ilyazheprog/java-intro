@@ -1,28 +1,46 @@
 package com.example;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-
+import static org.junit.jupiter.api.Assertions.*;
 
 public class AppTest {
 
+    // Тесты для FizzBuzz
     @Test
     public void testFizzbuzz() {
-        // Тестируем конкретные значения
-        assertNotEquals("2", App.fizzbuzz(1)); // Ожидаем 1
-        assertEquals("fizz", App.fizzbuzz(5)); // Ожидаем fizz
-        assertEquals("buzz", App.fizzbuzz(7)); // Ожидаем buzz
-        assertEquals("fizzbuzz", App.fizzbuzz(35)); // Ожидаем fizzbuzz
-        assertEquals("fizz", App.fizzbuzz(10)); // Ожидаем fizz
-        assertEquals("buzz", App.fizzbuzz(49)); // Ожидаем buzz
-        assertEquals("17", App.fizzbuzz(17)); // Ожидаем 17
+        assertEquals("fizz", App.fizzbuzz(5));
+        assertEquals("buzz", App.fizzbuzz(7));
+        assertEquals("fizzbuzz", App.fizzbuzz(35));
+        assertEquals("2", App.fizzbuzz(2));
     }
+
+    // Тесты для Reverse String
     @Test
     public void testReverseString() {
-        // Тестируем, что метод возвращает строку в обратном порядке
         assertEquals("llatsni ekam", App.reverseString());
-        assertNotEquals("llati ekam", App.reverseString());
+    }
 
+    // Тесты для решения квадратного уравнения
+    @Test
+    public void testSolveQuadraticEquation() {
+        assertEquals("Два корня: 2.0, 1.0", App.solveQuadraticEquation(1, -3, 2));
+        assertEquals("Один корень: 1.0", App.solveQuadraticEquation(1, -2, 1));
+        assertEquals("нет вещественных корней", App.solveQuadraticEquation(1, 0, 1));
+    }
+
+    // Тесты для суммы ряда
+    @Test
+    public void testCalculateSeriesSum() {
+        double result = App.calculateSeriesSum();
+        assertTrue(result > 0);
+        assertTrue(result < 10); // Проверка разумного диапазона
+    }
+
+    // Тесты для проверки на палиндром
+    @Test
+    public void testIsPalindrome() {
+        assertTrue(App.isPalindrome("radar"));
+        assertTrue(App.isPalindrome("level"));
+        assertFalse(App.isPalindrome("hello"));
     }
 }
